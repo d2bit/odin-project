@@ -38,4 +38,8 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Use paperclip to manage file uploads in html forms
 gem 'paperclip'
+
+# Use sorcery as authentication service
+gem 'sorcery'

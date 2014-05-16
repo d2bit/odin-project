@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+	before_filter :require_login, except: [:index, :show]
+
 	include ArticlesHelper
 
 	def index
@@ -16,14 +18,14 @@ class ArticlesController < ApplicationController
 		article.save
 
 		flash.notice = "Article '#{article.title}' Created!"
-		
+
 		redirect_to article_path(article)
 	end
 	def destroy
 		Article.find(params[:id]).destroy
 
 		flash.notice = "Article Destroyed!"
-		
+
 		redirect_to articles_path
 	end
 	def edit
